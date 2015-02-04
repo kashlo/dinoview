@@ -1,0 +1,47 @@
+.row
+  .col-md-6
+    =render partial: 'shared/errors', locals: {object: @template}
+
+    =form_for(@template) do |f|
+      .form-group
+        =f.label :name
+        =f.text_field :name, class: 'form-control'
+        %p.help-block
+          any name
+
+      .form-group
+        =f.label :body
+        =f.text_area :body, class: 'form-control'
+        %p.help-block
+          template body
+
+      .form-group
+        =f.label :path
+        =f.text_field :path, class: 'form-control'
+        %p.help-block
+          controller/action folder
+
+      .form-group
+        =f.label :handler
+        =f.text_field :handler, class: 'form-control'
+        %p.help-block
+          erb
+
+      .form-group
+        =f.label :partial
+        =f.check_box :partial, class: 'form-control'
+
+      .form-group
+        =f.label :format
+        =f.text_field :format, class: 'form-control'
+        %p.help-block
+          html
+
+      .form-group
+        =f.label :locale
+        =f.text_field :locale, class: 'form-control'
+        %p.help-block
+          en
+
+      .form-group
+        =f.submit 'Create', class: 'btn btn-info'
